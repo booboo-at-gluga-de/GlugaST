@@ -1,0 +1,27 @@
+Die u. g. Projekt-Rahmenbedingungen wurden von allen (initial) Beteiligten
+(Bernd, Michael, Erich, Jens, Stefan und Thomas F.)
+am 2013-08-05 im Cinecitta abgestimmt und sind ab sofort verbindlich:
+
+ 1. Rahmenbedingungen können im Projektverlauf nur noch mit 
+Zweidrittelmehrheit der aktiven Beteiligten geändert werden.
+
+ 2. Alle entwickelten Teile werden von allen Beteiligten unter GPL v3 gestellt.
+Wer in das Projekt committed oder Pull-Requests stellt, gibt diese damit
+unter GPL v3 frei.
+
+ 3. Entwicklung in Python 2.7 mit Python Server Pages.
+
+ 4. Trennung von Inhalt, Logik und Design
+(bedeutet konkret: Templates sind zu verwenden und Layouts nur (!!) per CSS, 
+keine Tabellen-Layouts, keine direkt-Formatierung von irgendwelchen Elementen)
+
+ 5. wir implementieren ein sauberes Schichtenmodell
+(bedeutet konkret: mindestens die Datenhaltungsschicht (=Persistenz-
+Layer) ist ein separates Modul, das man ggf. hinterher austauschen kann, ohne 
+irgendwas anderes anfassen zu müssen)
+
+ 6. Versionshaltung in einem GIT auf github.com, um die Zusammenarbeit 
+auf saubere Basis zu stellen.
+
+ 7. Kommunikations-Plattform ist Gluga-Users-ML.
+
