@@ -11,3 +11,12 @@ Info-Screen ist ein Browser, der Apache im Hintergrund kann auf der
 Maschine des Info-Screen mitlaufen oder auf einem Server im Internet.
 
 Sprache ist Python 2.7, entwickelt wird mit Python Server Pages.
+
+
+Projekt-Orga
+============
+
+Alle Infos zur Projekt-Orga siehe Verzeichnis orga.
+
+Projekt-Mailingliste: [Gluga-Users]
+siehe https://mailing.homelinux.net/mailman/listinfo/gluga-users
