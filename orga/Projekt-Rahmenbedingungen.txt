@@ -9,7 +9,7 @@ Zweidrittelmehrheit der aktiven Beteiligten geändert werden.
 Wer in das Projekt committed oder Pull-Requests stellt, gibt diese damit
 unter GPL v3 frei.
 
- 3. Entwicklung in Python 2.7 mit Python Server Pages.
+ 3. Entwicklung in Python 2.7
 
  4. Trennung von Inhalt, Logik und Design
 (bedeutet konkret: Templates sind zu verwenden und Layouts nur (!!) per CSS, 
