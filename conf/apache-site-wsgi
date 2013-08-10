@@ -1,0 +1,36 @@
+Listen 127.0.0.1:8888
+
+<VirtualHost *:8888>
+	ServerAdmin webmaster@localhost
+
+	DocumentRoot /var/websites/html
+	<Directory />
+		Options FollowSymLinks
+		AllowOverride None
+	</Directory>
+	<Directory /var/websites/wsgi/>
+		Options Indexes FollowSymLinks MultiViews Includes
+		AllowOverride None
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	ErrorLog /var/log/apache2/wsgi-error.log
+
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel warn
+
+	CustomLog /var/log/apache2/wsgi-access.log combined
+
+	# WSGIScriptAlias /hello_world /var/websites/wsgi/hello_world.wsgi
+	WSGIScriptAliasMatch ^/wsgi/([^/]+) /var/websites/wsgi/$1.wsgi
+
+	<Directory /usr/local/wsgi/scripts>
+		Order allow,deny
+		Allow from all
+	</Directory>
+
+        # protect from malicious use with too big data submitted
+	LimitRequestBody 100000
+</VirtualHost>
