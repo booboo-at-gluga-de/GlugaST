@@ -14,6 +14,14 @@ import datastore
 
 if len(sys.argv) < 4:
 	print "not enough arguments"
+	print "call using"
+	print ""
+	print "%s <name> <item> <amount>" % sys.argv[0]
+	print ""
+	print "where"
+	print "<name>   is the name of the person ordering"
+	print "<item>   describes what is ordered"
+	print "<amount> is an integer telling how much is ordered"
 	exit(1)
 
 datastore.add_order(sys.argv[1], sys.argv[2], sys.argv[3])

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys, os, sqlite3
+import sys, os, sqlite3, time
 home=os.environ.get("HOME")
 dbfile = home + "/git/GlugaST/data/GulgaST.sqlite3.db"
 
@@ -16,7 +16,7 @@ def db_initialize():
 		conn = sqlite3.connect(dbfile)
 		# cursor
 		db = conn.cursor()
-		db.execute('''CREATE TABLE orders (id INTEGER PRIMARY KEY, name text, item text, amount int, status int)''')
+		db.execute('''CREATE TABLE orders (id INTEGER PRIMARY KEY, name text, item text, amount int, status int, timestamp int)''')
 		conn.commit()
 		conn.close()
 		return(0)
@@ -32,13 +32,14 @@ def db_initialize():
 def add_order(name, item, amount):
 	amount=int(amount)
 	print "adding order: %s orders %s %s" % (name, amount, item)
+	now = int(time.time())
 
 	try:
 		# connection
 		conn = sqlite3.connect(dbfile)
 		# cursor
 		db = conn.cursor()
-		db.execute("INSERT INTO orders(name, item, amount, status) VALUES (?, ?, ?, 0)", (name, amount, item))
+		db.execute("INSERT INTO orders(name, item, amount, status, timestamp) VALUES (?, ?, ?, 0, ?)", (name, amount, item, now))
 		conn.commit()
 		conn.close()
 		return(0)
