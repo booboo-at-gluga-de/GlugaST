@@ -39,7 +39,7 @@ def add_order(name, item, amount):
 		conn = sqlite3.connect(dbfile)
 		# cursor
 		db = conn.cursor()
-		db.execute("INSERT INTO orders(name, item, amount, status, timestamp) VALUES (?, ?, ?, 0, ?)", (name, amount, item, now))
+		db.execute("INSERT INTO orders(name, item, amount, status, timestamp) VALUES (?, ?, ?, 0, ?)", (name, item, amount, now))
 		conn.commit()
 		conn.close()
 		return(0)
@@ -58,11 +58,14 @@ def get_orders():
 		conn = sqlite3.connect(dbfile)
 		# cursor
 		db = conn.cursor()
+		# return object is a list
+		open_orders = []
 		for row in db.execute("SELECT * FROM orders"):
-			print row
+			open_orders.append(row)
+			# print row
 			# print "%s will %s %s" % (row[1], row[3], row[2])
 		conn.close()
-		return(0)
+		return(open_orders)
 	except sqlite3.OperationalError, ex:
 		print "Not successful!!"
 		print "OperationalError: %s" % ex

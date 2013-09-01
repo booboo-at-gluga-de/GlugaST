@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys, os
+import sys, os, time
 home=os.environ.get("HOME")
 sys.path.append(home + "/git/GlugaST/lib/")
 import datastore
@@ -16,4 +16,8 @@ import datastore
 #	print "not enough arguments"
 #	exit(1)
 
-datastore.get_orders()
+open_orders = datastore.get_orders()
+print open_orders
+for row in open_orders:
+	print "%s will %s %s (bestellt %s)" % (row[1], row[3], row[2], time.ctime(row[5]))
+	print "(bestellt %s)" % time.localtime(row[5])
