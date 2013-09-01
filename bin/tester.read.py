@@ -17,7 +17,7 @@ import datastore
 #	exit(1)
 
 open_orders = datastore.get_orders()
-print open_orders
+#print open_orders
 for row in open_orders:
-	print "%s will %s %s (bestellt %s)" % (row[1], row[3], row[2], time.ctime(row[5]))
-	print "(bestellt %s)" % time.localtime(row[5])
+	#print "%s will %s %s (bestellt %s)" % (row[1], row[3], row[2], time.ctime(row[5]))
+	print "%s will %s %s (bestellt um %s)" % (row[1], row[3], row[2], time.strftime("%H:%M Uhr am %d.%m.%Y", time.localtime(row[5])))
