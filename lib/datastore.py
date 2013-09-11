@@ -1,8 +1,7 @@
 #!/usr/bin/python
 
-import sys, os, sqlite3, time
-home=os.environ.get("HOME")
-dbfile = home + "/git/GlugaST/data/GulgaST.sqlite3.db"
+import sys, sqlite3, time
+dbfile = "/var/websites/data/GulgaST.sqlite3.db"
 
 #             0              1             2          3
 status = ("bestellt", "ausgeliefert", "erhalten", "bezahlt")
