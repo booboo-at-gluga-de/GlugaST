@@ -6,6 +6,8 @@ dbfile = "/var/websites/data/GulgaST.sqlite3.db"
 #             0              1             2          3
 status = ("bestellt", "ausgeliefert", "erhalten", "bezahlt")
 
+def get_status(status_id):
+	return status[status_id]
 
 def db_initialize():
 	print "initalizing database in %s" % dbfile
@@ -50,8 +52,42 @@ def add_order(name, item, amount):
 		print "Not successful, error unknown!"
 		return(1)
 
-def get_orders():
-	print "getting orders"
+def update_order_status(id, new_status):
+	print "order %s gets new status %s" % (id, new_status)
+
+	try:
+		# connection
+		conn = sqlite3.connect(dbfile)
+		# cursor
+		db = conn.cursor()
+		db.execute("UPDATE orders set status=%s where id=%s" % (new_status, id))
+		conn.commit()
+		conn.close()
+		return(0)
+	except sqlite3.OperationalError, ex:
+		print "Not successful!!"
+		print "OperationalError: %s" % ex
+		return(1)
+	except:
+		raise
+		print "Not successful!"
+		return(1)
+
+
+def get_orders( filter = {} ):
+	print "getting orders with filter: %s" % filter
+        sql = "SELECT * FROM orders"
+
+	try:
+            print 'filter["status"]: %s' % filter["status"]
+            sql += " where status=%s" % filter["status"][0]
+        except KeyError, ex:
+            print 'ohne filter'
+        except:
+            raise
+
+        print "SQL: %s" % sql
+
 	try:
 		# connection
 		conn = sqlite3.connect(dbfile)
@@ -59,7 +95,8 @@ def get_orders():
 		db = conn.cursor()
 		# return object is a list
 		open_orders = []
-		for row in db.execute("SELECT * FROM orders"):
+
+		for row in db.execute(sql):
 			open_orders.append(row)
 			# print row
 			# print "%s will %s %s" % (row[1], row[3], row[2])
