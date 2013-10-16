@@ -16,7 +16,7 @@ Sprache ist Python 2.7, entwickelt wird mit Python Server Pages.
 Projekt-Orga
 ============
 
-Alle Infos zur Projekt-Orga siehe Verzeichnis orga, teilweise auch schon im [Wiki](https://github.com/booboo-at-gluga-de/GlugaST/wiki/Getting_Started) (Neue Dokumente bitte nur noch im Wiki ablegen, die Sachen aus dem orga Verzeichnis werden bei Gelegenheit auch noch umgezogen.)
+Alle Infos zur Projekt-Orga siehe Verzeichnis orga, teilweise auch schon im [Wiki](https://github.com/booboo-at-gluga-de/GlugaST/wiki) (Neue Dokumente bitte nur noch im Wiki ablegen, die Sachen aus dem orga Verzeichnis werden bei Gelegenheit auch noch umgezogen.)
 
 Projekt-Mailingliste: [Gluga-Users]
 siehe https://mailing.homelinux.net/mailman/listinfo/gluga-users
