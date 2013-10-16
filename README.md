@@ -10,7 +10,7 @@ Das System soll webbasiert sein. Bestell-Client ist ein Browser,
 Info-Screen ist ein Browser, der Apache im Hintergrund kann auf der 
 Maschine des Info-Screen mitlaufen oder auf einem Server im Internet.
 
-Sprache ist Python 2.7 mit mod_wsgi.
+Sprache ist Python 2.7, entwickelt wird mit mod_wsgi.
 
 
 Projekt-Orga
